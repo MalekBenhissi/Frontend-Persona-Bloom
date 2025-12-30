@@ -98,10 +98,14 @@ Le frontend de l'application, situé dans le dossier `WebContent/`, communique a
 ### Exemple d'utilisation dans le code :
 
 ```javascript
-async function getAllPersons() {
-    const res = await fetch(`${BASE_URL}/all`);
-    const data = await res.json();
-    displayPersons(data);
+async function checkPersonExists(id) {
+    try {
+        const res = await fetch(`${BASE_URL}/${id}`, { method: 'GET', redirect: 'manual' });
+        return res.status === 200;
+    } catch (error) {
+        console.error('Error checking person:', error);
+        return false;
+    }
 }
 ```
 ---
