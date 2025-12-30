@@ -103,7 +103,7 @@ async function getAllPersons() {
     const data = await res.json();
     displayPersons(data);
 }
-
+```
 ---
 
 ## Instructions pour exécuter le projet
